@@ -168,8 +168,9 @@ st.altair_chart(c, use_container_width=True)
 ##### End Graph #####
 
 ##### Start Explanation #####
-comparison = getComparison(paces)
-st.write(f"Your best relative race effort is in the {comparison['Best']}.")
-st.write(f"Your worst relative race effort is in the {comparison['Worst']}.")
-st.write(f"The difference is paces is {comparison['Difference']:.1%}. This is a {comparison['Category']} difference.")
+if len(paces.columns) > 2:
+    comparison = getComparison(paces)
+    st.write(f"Your best relative race effort is in the {comparison['Best']}.")
+    st.write(f"Your worst relative race effort is in the {comparison['Worst']}.")
+    st.write(f"The difference is paces is {comparison['Difference']:.1%}. This is a {comparison['Category']} difference.")
 ##### End Explanation #####
