@@ -1,19 +1,17 @@
-# 🎈 Blank app template
+# Race Pace Comparison
 
-A simple Streamlit app template for you to modify!
+This is a simple tool to compare race performances at different distances.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+You can enter a number of best efforts at different distances. These efforts are converted to paces and graphed to help visualize whether these efforts are similar or different.
 
-### How to run it on your own machine
+## How Are Calculations Made
 
-1. Install the requirements
+The calculator converts each race performance to a set of equivalent paces, [using Pete Riegel's formula](https://en.wikipedia.org/wiki/Peter_Riegel).
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+The race times are first converted to seconds. Then, they're passed to the formula to calculate equivalent race times for each desired distance. Finally, the equivalent times are divided by miles or kilometers to give a race pace.
 
-2. Run the app
+Each set of equivalent paces is graphed on the line graph.
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+Finally, the best and the worst efforts are identified. The equivalent paces for those two efforts are converted to seconds. The difference in seconds is divided by the best effort to calculate a percentage difference between the two paces.
+
+A difference of less than 2.5% is considered normal. 2.5% to 5.0% is considered medium. And any difference above 5.0% is considered high.
